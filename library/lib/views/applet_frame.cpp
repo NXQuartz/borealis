@@ -90,10 +90,17 @@ const std::string appletFrameXML = R"xml(
             <brls:Hint
                 animated="true"/>
 
+            <!--
             <brls:Rectangle
                 width="75px"
                 height="auto"
                 color="#FF00FF" />
+            -->
+            <brls:Label
+                id="brls/applet_frame/footer_label"
+                width="auto"
+                height="auto"
+                fontSize="22"/>
 
         </brls:Box>
 
@@ -106,6 +113,10 @@ AppletFrame::AppletFrame()
 
     this->registerStringXMLAttribute("title", [this](std::string value) {
         this->setTitle(value);
+    });
+
+    this->registerStringXMLAttribute("footer", [this](std::string value) {
+        this->setFooter(value);
     });
 
     this->registerFilePathXMLAttribute("icon", [this](std::string value) {
@@ -130,6 +141,11 @@ void AppletFrame::setIconFromFile(std::string path)
 void AppletFrame::setTitle(std::string title)
 {
     this->title->setText(title);
+}
+
+void AppletFrame::setFooter(std::string text)
+{
+    this->footer->setText(text);
 }
 
 void AppletFrame::setContentView(View* view)

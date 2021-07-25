@@ -1,5 +1,6 @@
 <brls:TabFrame
     title="@i18n/demo/title"
+    footer="Borealis Demo, v1.0"
     iconInterpolation="linear"
     icon="@res/img/borealis_96.png">
 
