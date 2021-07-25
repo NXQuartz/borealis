@@ -28,6 +28,7 @@
 #include <borealis/core/util.hpp>
 #include <borealis/views/button.hpp>
 #include <borealis/views/header.hpp>
+#include <borealis/views/hint.hpp>
 #include <borealis/views/image.hpp>
 #include <borealis/views/rectangle.hpp>
 #include <borealis/views/sidebar.hpp>
@@ -781,6 +782,7 @@ void Application::registerBuiltInXMLViews()
     Application::registerXMLView("brls:Image", Image::create);
     Application::registerXMLView("brls:Padding", Padding::create);
     Application::registerXMLView("brls:Button", Button::create);
+    Application::registerXMLView("brls:Hint", Hint::create);
 }
 
 void Application::registerXMLView(std::string name, XMLViewCreator creator)

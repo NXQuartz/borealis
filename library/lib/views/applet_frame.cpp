@@ -81,10 +81,14 @@ const std::string appletFrameXML = R"xml(
             lineTop="1px"
             justifyContent="spaceBetween" >
 
+            <!--
             <brls:Rectangle
                 width="272px"
                 height="auto"
                 color="#FF0000" />
+            -->
+            <brls:Hint
+                animated="true"/>
 
             <brls:Rectangle
                 width="75px"
