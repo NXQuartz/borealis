@@ -28,11 +28,7 @@ const std::string hintXML = R"xml(
         height="auto"
         axis="row">
 
-        <brls:Label
-            id="brls/hint/hint_label"
-            width="auto"
-            height="auto"
-            fontSize="22"/>
+        <!-- Hint labels will be inserted into here -->
 
     </brls:Box>
 )xml";
@@ -111,7 +107,15 @@ void Hint::rebuildHints()
             return;
     }
 
-    hintLabel->setText("");
+    if (!currentLabels.empty())
+    {
+        for (auto *e : currentLabels)
+        {
+            this->removeView(e);
+            //delete e;
+        }
+        currentLabels.clear();
+    }
 
     std::set<ControllerButton> addedButtons;
     View *focusParent = Application::getCurrentFocus();
@@ -137,12 +141,18 @@ void Hint::rebuildHints()
 
     std::stable_sort(actions.begin(), actions.end(), actionsSortFunc);
 
-    std::string hintTxt;
     for (Action a : actions)
     {
-        hintTxt += Hint::getKeyIcon(a.button) + " " + a.hintText + "   ";
+        std::string hintTxt = Hint::getKeyIcon(a.button) + "  " + a.hintText;
+
+        Label *label = new Label();
+        label->setFontSize(22.0f);
+        label->setText(hintTxt);
+        label->setMarginRight(30.0f);
+
+        this->addView(label);
+        currentLabels.push_back(label);
     }
-    hintLabel->setText(hintTxt);
 }
 
 std::string Hint::getKeyIcon(ControllerButton button)

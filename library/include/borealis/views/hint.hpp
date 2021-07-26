@@ -39,13 +39,12 @@ struct Hint : public Box
     void setAnimated(bool animate);
 
     private:
-    BRLS_BIND(brls::Label, hintLabel, "brls/hint/hint_label");
-
     bool animate;
 
     GenericEvent::Subscription globalFocusEventSubscriptor;
     VoidEvent::Subscription globalHintsUpdateEventSubscriptor;
 
+    std::vector<Label*> currentLabels;
     inline static std::vector<Hint*> globalHintStack;
 
     static void pushHint(Hint *hint);
