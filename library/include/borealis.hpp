@@ -40,14 +40,17 @@
 #include <borealis/core/timer.hpp>
 #include <borealis/core/video.hpp>
 #include <borealis/core/view.hpp>
+#include <borealis/core/view_stack.hpp>
 
 //Views
 #include <borealis/views/applet_frame.hpp>
 #include <borealis/views/button.hpp>
 #include <borealis/views/header.hpp>
+#include <borealis/views/hint.hpp>
 #include <borealis/views/image.hpp>
 #include <borealis/views/label.hpp>
 #include <borealis/views/rectangle.hpp>
 #include <borealis/views/scrolling_frame.hpp>
 #include <borealis/views/sidebar.hpp>
+#include <borealis/views/staged_applet_frame.hpp>
 #include <borealis/views/tab_frame.hpp>
