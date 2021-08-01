@@ -27,6 +27,8 @@ struct StagedAppletFrame : public AppletFrame
     StagedAppletFrame();
     ~StagedAppletFrame();
 
+    static View* create();
+
     void addStage(View *view);
     void nextStage();
     void previousStage();

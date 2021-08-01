@@ -81,4 +81,9 @@ bool StagedAppletFrame::isLastStage()
     return this->currentStage == this->allViews.size() - 1;
 }
 
+View* StagedAppletFrame::create()
+{
+    return new StagedAppletFrame();
+}
+
 } // namespace brls

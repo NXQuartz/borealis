@@ -26,7 +26,8 @@ const std::string hintXML = R"xml(
     <brls:Box
         width="auto"
         height="auto"
-        axis="row">
+        axis="row"
+        direction="leftToRight">
 
         <!-- Hint labels will be inserted into here -->
 
