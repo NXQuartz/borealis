@@ -81,15 +81,13 @@ const std::string appletFrameXML = R"xml(
             lineTop="1px"
             justifyContent="spaceBetween" >
 
-            <brls:Rectangle
-                width="272px"
-                height="auto"
-                color="#FF0000" />
+            <brls:Hint/>
 
-            <brls:Rectangle
-                width="75px"
+            <brls:Label
+                id="brls/applet_frame/footer_label"
+                width="auto"
                 height="auto"
-                color="#FF00FF" />
+                fontSize="22"/>
 
         </brls:Box>
 
@@ -102,6 +100,10 @@ AppletFrame::AppletFrame()
 
     this->registerStringXMLAttribute("title", [this](std::string value) {
         this->setTitle(value);
+    });
+
+    this->registerStringXMLAttribute("footer", [this](std::string value) {
+        this->setFooter(value);
     });
 
     this->registerFilePathXMLAttribute("icon", [this](std::string value) {
@@ -128,12 +130,17 @@ void AppletFrame::setTitle(std::string title)
     this->title->setText(title);
 }
 
+void AppletFrame::setFooter(std::string text)
+{
+    this->footer->setText(text);
+}
+
 void AppletFrame::setContentView(View* view)
 {
     if (this->contentView)
     {
         // Remove the node
-        this->removeView(this->contentView);
+        Box::removeView(this->contentView);
         this->contentView = nullptr;
     }
 
@@ -145,7 +152,7 @@ void AppletFrame::setContentView(View* view)
     this->contentView->setDimensions(View::AUTO, View::AUTO);
     this->contentView->setGrow(1.0f);
 
-    this->addView(this->contentView, 1);
+    Box::addView(this->contentView, 1);
 }
 
 void AppletFrame::handleXMLElement(tinyxml2::XMLElement* element)

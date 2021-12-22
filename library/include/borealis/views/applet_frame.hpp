@@ -41,6 +41,7 @@ class AppletFrame : public Box
     void setContentView(View* view);
 
     void setTitle(std::string title);
+    void setFooter(std::string text);
 
     void setIconFromRes(std::string name);
     void setIconFromFile(std::string path);
@@ -49,6 +50,7 @@ class AppletFrame : public Box
 
   private:
     BRLS_BIND(Label, title, "brls/applet_frame/title_label");
+    BRLS_BIND(Label, footer, "brls/applet_frame/footer_label");
     BRLS_BIND(Image, icon, "brls/applet_frame/title_icon");
 
   protected:
