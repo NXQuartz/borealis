@@ -260,12 +260,12 @@ namespace internal
 
 inline namespace literals
 {
-    std::string operator"" _i18n(const char* str, unsigned long long len)
+    std::string operator"" _i18n(const char* str, size_t len)
     {
         return internal::getRawStr(std::string(str, len));
     }
 
-    std::string operator"" _internal(const char* str, unsigned long long len)
+    std::string operator"" _internal(const char* str, size_t len)
     {
         return internal::getRawStr(std::string(str, len), true);
     }

@@ -107,13 +107,13 @@ inline namespace literals
      * injecting any parameters
      * Shortcut to brls::getStr(stringName)
      */
-    std::string operator"" _i18n(const char* str, unsigned long long len);
+    std::string operator"" _i18n(const char* str, size_t len);
 
     /**
      * Returns the internal translation for the given string, without
      * injecting any parameters
      * Shortcut to brls::internal::getRawStr(stringName, true)
      */
-    std::string operator"" _internal(const char* str, unsigned long long len);
+    std::string operator"" _internal(const char* str, size_t len);
 } // namespace literals
 } // namespace brls
