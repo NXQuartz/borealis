@@ -31,7 +31,7 @@ enum class LogLevel
     ERROR = 0,
     WARNING,
     INFO,
-    DEBUG
+    DBG
 };
 
 class Logger
@@ -83,7 +83,7 @@ class Logger
     template <typename... Args>
     inline static void debug(std::string format, Args&&... args)
     {
-        Logger::log(LogLevel::DEBUG, "DEBUG", "[0;32m", format, args...);
+        Logger::log(LogLevel::DBG, "DEBUG", "[0;32m", format, args...);
     }
 
   private:
