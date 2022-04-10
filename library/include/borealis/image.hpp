@@ -55,7 +55,7 @@ class Image : public View
     Image(std::string imagePath);
     Image(unsigned char* buffer, size_t bufferSize);
 
-    virtual ~Image();
+    ~Image();
     Image(const Image& copy);
     Image(Image&& move) noexcept;
     Image& operator=(const Image& cp_assign);
