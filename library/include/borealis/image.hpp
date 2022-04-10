@@ -48,14 +48,14 @@ enum class ImageScaleType
 // An image
 class Image : public View
 {
-    friend void std::swap(Image& a, Image& b);
+  friend void std::swap(Image& a, Image& b);
 
   public:
     Image() = default;
     Image(std::string imagePath);
     Image(unsigned char* buffer, size_t bufferSize);
 
-    ~Image();
+    virtual ~Image();
     Image(const Image& copy);
     Image(Image&& move) noexcept;
     Image& operator=(const Image& cp_assign);
